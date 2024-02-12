@@ -1,0 +1,5 @@
+query,query_optimized
+SELECT * FROM Professor WHERE department_id = 4;,SELECT * FROM Professor p WHERE p.department_id = 4 INDEX(p.department_id);
+SELECT * FROM Student s JOIN Enrollment e ON s.student_id = e.student_id WHERE s.ville = 'Rabat';,SELECT * FROM Student s JOIN Enrollment e ON s.student_id = e.student_id WHERE s.ville = 'Rabat' INDEX(s.ville);
+SELECT * FROM Classroom WHERE building_name = 'Building C' AND room_number = 102;,SELECT * FROM Classroom c WHERE c.building_name = 'Building C' AND c.room_number = 102 INDEX(c.building_name, c.room_number);
+SELECT * FROM Department WHERE department_name = 'Computer Science';,SELECT * FROM Department d WHERE d.department_name = 'Computer Science' INDEX(d.department_name); 
